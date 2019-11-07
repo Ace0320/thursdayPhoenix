@@ -1,8 +1,11 @@
 let http = require("http") 
+let url = require("url")
 
 function onRequest(request, response) {
     response.writeHead(200, {"Content-Type": "text/plain"}) 
     response.write("Hello, We just received this request: " + request.url) 
+    let query = url.parse(request.url, true).query
+    response.writ("Name: "+ name+" Height: "+query.height)
     response.end() 
 }
 
